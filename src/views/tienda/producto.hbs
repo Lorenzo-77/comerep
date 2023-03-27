@@ -1,0 +1,111 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            {{#each item}}
+            <div class="col-md-6">
+                <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/uploads/{{nombre}}" class="d-block w-100 redimension" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/uploads/{{nombre2}}" class="d-block w-100 redimension" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/uploads/{{nombre3}}" class="d-block w-100 redimension" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="small mb-1"><strong>{{estado}}</strong></div>
+                <h3 class="">{{titulo}}</h3>
+                <div class="fs-5 mb-5">
+                    <span>${{precio}}</span>
+                </div>
+                <p>{{descripcion}}</p>
+                <div class="d-flex">
+
+                    <!-- Extras de agregar color y talle
+                                <select name="id_lista" class=" text-center me-3" aria-label="Default select example" >
+                                {{#each ../otros}}
+                                <option class="form-control"> {{talla}}</option>
+                                {{/each}}
+                                </select>
+                               <select name="id_lista" class=" text-center me-3" aria-label="Default select example" >
+                                {{#each ../otros}}
+                                <option class="form-control"> {{color}}</option>
+                                {{/each}}
+                                </select>
+                                -->
+                    <div class="modal-footer">
+                        <form method="POST" action="/cart/add">
+                            <input type="hidden" name="id" value="{{id}}">
+                            <button class="btn btn-warning mt-auto" type="submit">Agregar<i
+                                    class="fas fa-shopping-cart"></i></button>
+                        </form>
+                        <a class="btn x btn-success mt-auto"
+                            href="https://api.whatsapp.com/send?phone=+2657620169&text=Hola,%20Quisiera%20comprar%20este%20producto:%0A%20*{{titulo}}%20${{precio}}*"
+                            target="_blank">
+                            <i class="bi bi-whatsapp me-1"></i>Comprar</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+</div>
+<!-- Related items section-->
+<section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">Related products</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {{#each categoria}}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Nuevo
+                    </div>
+                    <!-- Product image-->
+                    <img class="card-img-top redimension2" src="/uploads/{{nombre}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw xx">{{titulo}}</h5>
+                            <!-- Product reviews-->
+
+                            <!-- Product price-->
+
+                            ${{precio}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                href="/producto/{{id}}/{{idCategori}}">Ver Producto</a></div>
+                    </div>
+
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+    </div>
+</section>

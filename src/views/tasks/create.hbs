@@ -1,0 +1,55 @@
+<main class="container p-5">
+
+<div class="col-md-4 mx-auto ">
+    <div class="card text-center border-primary mb-3">
+    <div class="card-header">
+        <h3>Crear Producto</h3>
+    </div>
+    <div class="card-body ">
+        <form action="" method="post"  enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <input type="text"  name="titulo" class="form-control" placeholder="Producto" autofocus required>
+        </div>
+        <div class="input-group mb-3">
+            <input type="number"  name="precio" class="form-control" placeholder="Precio $" autofocus required>
+        </div>
+        <div class="input-group mb-3">
+            <textarea class="form-control" name="descripcion" placeholder="Descripción" required></textarea>
+        </div>
+         <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Estado" disabled>
+          <select name="estado" class="form-select" aria-label="Default select example" >
+              <option class="form-control">En Stock</option>
+              <option class="form-control">Sin Stock</option>
+
+          </select>
+        </div> 
+        <div class="input-group mb-3">
+            
+         <input class="form-control"  type="file" name="image" multiple/>
+
+        </div>
+        
+        <div class="input-group mb-3">
+        <select name="idCategori" class="form-select" aria-label="Default select example" >
+            {{#each categoria}}
+            <option value="{{idCategoria}}"> {{nombreCategoria}}</option>
+            {{/each}}
+          </select>
+         <select name="idMarc" class="form-select" aria-label="Default select example" >
+            {{#each marca}}
+            <option value="{{idMarca}}"> {{nombreMarca}}</option>
+            {{/each}}
+          </select>
+          </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+                Guardar
+            </button>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+</main>

@@ -1,0 +1,89 @@
+
+<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+
+            <div class="row">
+
+              <div class="col-lg-7">
+                <h5 class="mb-3"><a href="/" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Continue
+                    shopping</a></h5>
+                <hr />
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <h2 class="mb-1">Carro de compras</h2>
+                  </div>
+                  <div>
+                  </div>
+                </div>
+                {{#each item}}
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img src="/uploads/{{nombre}}" class="img-carro rounded-3" alt="Shopping item"
+                             />
+                        </div>
+                        <div class="ms-3">
+                          <h6>{{titulo}}</h6>
+                          <!-- <p class="small mb-0">256GB, Navy Blue</p>-->
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">${{precio}}</h5>
+                        </div>
+                        <form method="POST" action="/cart/{{id}}/delete">
+                          <input type="hidden" name="id" value="{{id}}" />
+                          <button style="color: #cecece;" type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+
+              <div class="col-lg-5">
+
+                <div class="card rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">TOTAL DEL CARRITO</h5>
+
+                    </div>
+                    <hr class="my-4" />
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">${{total}}</p>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Total</p>
+                      <p class="mb-2">${{total}}</p>
+                    </div>
+                    <div class=" d-grid gap-2">
+                      <a class="btn btn-success mt-auto"
+                        href="https://api.whatsapp.com/send?phone=+2657620169&text=Hola,%20Quisiera%20comprar%20estos%20productos:{{#each item}}%0A%20*{{titulo}}%20${{precio}}*{{/each}}%0A%20Total: {{total}}$"
+                        target="_blank">
+                        <i class="bi bi-whatsapp me-1"></i>Comprar</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
